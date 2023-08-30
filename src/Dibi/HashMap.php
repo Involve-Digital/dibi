@@ -8,8 +8,11 @@
 namespace Dibi;
 
 
+use AllowDynamicProperties;
+
 /**
  * Lazy cached storage.
+ *
  * @internal
  */
 abstract class HashMapBase
@@ -41,6 +44,7 @@ abstract class HashMapBase
  * Lazy cached storage.
  * @internal
  */
+#[AllowDynamicProperties]
 final class HashMap extends HashMapBase
 {
 	public function __set($nm, $val)
