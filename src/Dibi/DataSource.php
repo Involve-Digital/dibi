@@ -158,8 +158,8 @@ class DataSource implements IDataSource
 	/**
 	 * @return ResultIterator
 	 */
-	public function getIterator()
-	{
+	public function getIterator(): ResultIterator
+    {
 		return $this->getResult()->getIterator();
 	}
 
@@ -278,8 +278,8 @@ FROM %SQL', $this->sql, '
 	 * Returns the number of rows in a given data source.
 	 * @return int
 	 */
-	public function count()
-	{
+	public function count(): int
+    {
 		if ($this->count === null) {
 			$this->count = $this->conds || $this->offset || $this->limit
 				? Helpers::intVal($this->connection->nativeQuery(

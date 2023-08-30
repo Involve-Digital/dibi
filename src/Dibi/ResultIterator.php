@@ -38,8 +38,8 @@ class ResultIterator implements \Iterator, \Countable
 	 * Rewinds the iterator to the first element.
 	 * @return void
 	 */
-	public function rewind()
-	{
+	public function rewind(): void
+    {
 		$this->pointer = 0;
 		$this->result->seek(0);
 		$this->row = $this->result->fetch();
@@ -50,8 +50,8 @@ class ResultIterator implements \Iterator, \Countable
 	 * Returns the key of the current element.
 	 * @return mixed
 	 */
-	public function key()
-	{
+	public function key(): mixed
+    {
 		return $this->pointer;
 	}
 
@@ -60,8 +60,8 @@ class ResultIterator implements \Iterator, \Countable
 	 * Returns the current element.
 	 * @return mixed
 	 */
-	public function current()
-	{
+	public function current(): mixed
+    {
 		return $this->row;
 	}
 
@@ -70,8 +70,8 @@ class ResultIterator implements \Iterator, \Countable
 	 * Moves forward to next element.
 	 * @return void
 	 */
-	public function next()
-	{
+	public function next(): void
+    {
 		$this->row = $this->result->fetch();
 		$this->pointer++;
 	}
@@ -81,8 +81,8 @@ class ResultIterator implements \Iterator, \Countable
 	 * Checks if there is a current element after calls to rewind() or next().
 	 * @return bool
 	 */
-	public function valid()
-	{
+	public function valid(): bool
+    {
 		return !empty($this->row);
 	}
 
@@ -91,8 +91,8 @@ class ResultIterator implements \Iterator, \Countable
 	 * Required by the Countable interface.
 	 * @return int
 	 */
-	public function count()
-	{
+	public function count(): int
+    {
 		return $this->result->getRowCount();
 	}
 }
