@@ -385,8 +385,8 @@ class Fluent implements IDataSource
 	 * @param  int  limit
 	 * @return ResultIterator
 	 */
-	public function getIterator($offset = null, $limit = null)
-	{
+	public function getIterator($offset = null, $limit = null): ResultIterator
+    {
 		return $this->query($this->_export(null, ['%ofs %lmt', $offset, $limit]))->getIterator();
 	}
 
@@ -405,8 +405,8 @@ class Fluent implements IDataSource
 	/**
 	 * @return int
 	 */
-	public function count()
-	{
+	public function count(): int
+    {
 		return Helpers::intVal($this->query([
 			'SELECT COUNT(*) FROM (%ex', $this->_export(), ') [data]',
 		])->fetchSingle());
