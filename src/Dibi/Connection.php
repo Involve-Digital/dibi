@@ -672,7 +672,7 @@ class Connection
 	/**
 	 * Prevents unserialization.
 	 */
-	public function __wakeup()
+	public function __wakeup(): void
 	{
 		throw new NotSupportedException('You cannot serialize or unserialize ' . get_class($this) . ' instances.');
 	}
