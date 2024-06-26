@@ -43,8 +43,8 @@ class Exception extends \Exception
 	/**
 	 * @return string  string represenation of exception with SQL command
 	 */
-	public function __toString()
-	{
+	public function __toString(): string
+    {
 		return parent::__toString() . ($this->sql ? "\nSQL: " . $this->sql : '');
 	}
 }

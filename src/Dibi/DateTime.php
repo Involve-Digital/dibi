@@ -38,16 +38,16 @@ class DateTime extends \DateTime
 	}
 
 
-	public function setTimestamp($timestamp)
-	{
+	public function setTimestamp($timestamp): DateTime
+    {
 		$zone = $this->getTimezone();
 		$this->__construct('@' . $timestamp);
 		return $this->setTimeZone($zone);
 	}
 
 
-	public function getTimestamp()
-	{
+	public function getTimestamp(): int
+    {
 		$ts = $this->format('U');
 		return is_float($tmp = $ts * 1) ? $ts : $tmp;
 	}
